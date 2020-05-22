@@ -13017,23 +13017,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    /*This file contains any manual css for this page that needs to override the global styles.
-This is only required when different pages style the same element differently. This is just
-a hack to deal with our current css styles and no new styling should be added in this file.*/
-
-div#notebook p, div#notebook{
-    font-size: 120%;
-    line-height: 125%;
-}.rendered_html pre, .rendered_html table{
-    font-size:120%;
-    line-height: 125%;
-}.CodeMirror, .CodeMirror pre, .CodeMirror-dialog, .CodeMirror-dialog .CodeMirror-search-field, .terminal-app .terminal {
-    font-size: 120%;
-    line-height: 125%;
-}
-
-    </style>
 
 
 <style type="text/css">
@@ -13094,16 +13077,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Analyze-A/B-Test-Results">Analyze A/B Test Results<a class="anchor-link" href="#Analyze-A/B-Test-Results">&#182;</a></h2><p>This project will assure you have mastered the subjects covered in the statistics lessons.  The hope is to have this project be as comprehensive of these topics as possible.  Good luck!</p>
-<h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h2><ul>
+<h1 id="Analyze-A/B-Test-Results">Analyze A/B Test Results<a class="anchor-link" href="#Analyze-A/B-Test-Results">&#182;</a></h1><h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h2><ul>
 <li><a href="#intro">Introduction</a></li>
 <li><a href="#probability">Part I - Probability</a></li>
 <li><a href="#ab_test">Part II - A/B Test</a></li>
 <li><a href="#regression">Part III - Regression</a></li>
 </ul>
 <p><a id='intro'></a></p>
-<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>A/B tests are very commonly performed by data analysts and data scientists.  It is important that you get some practice working with the difficulties of these</p>
-<p>For this project, you will be working to understand the results of an A/B test run by an e-commerce website.  Your goal is to work through this notebook to help the company understand if they should implement the new page, keep the old page, or perhaps run the experiment longer to make their decision.</p>
+<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h3><p>For this project, we will be working to understand the results of an A/B test run by an e-commerce website. Our goal is to work through this notebook to help the company understand if they should implement the new page, keep the old page, or perhaps run the experiment longer to make their decision.</p>
 <p><a id='probability'></a></p>
 <h4 id="Part-I---Probability">Part I - Probability<a class="anchor-link" href="#Part-I---Probability">&#182;</a></h4><p>To get started, let's import our libraries.</p>
 
@@ -13120,7 +13101,8 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="c1">#We are setting the seed to assure you get the same answers on quizzes as we set up</span>
+
+<span class="c1"># to get consistent results</span>
 <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 
@@ -13132,8 +13114,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>1.</code> Now, read in the <code>ab_data.csv</code> data. Store it in <code>df</code>.</p>
-<p>a. Read in the dataset and take a look at the top few rows here:</p>
+<p><code>1.</code> Read in the <code>ab_data.csv</code> data and store it in <code>df</code>.</p>
+<p>a. Read in the dataset and take a look at the top few rows</p>
 
 </div>
 </div>
@@ -13242,7 +13224,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>b. The number of rows in the dataset.</p>
+<p>b. The number of rows in the dataset:</p>
 
 </div>
 </div>
@@ -13283,7 +13265,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>c. The number of unique users in the dataset.</p>
+<p>c. The number of unique users in the dataset:</p>
 
 </div>
 </div>
@@ -13324,7 +13306,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>d. The proportion of users converted.</p>
+<p>d. The proportion of users converted:</p>
 
 </div>
 </div>
@@ -13365,7 +13347,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>e. The number of times the <code>new_page</code> and <code>treatment</code> don't match.</p>
+<p>e. The number of times the <code>new_page</code> and <code>treatment</code> don't match:</p>
 
 </div>
 </div>
@@ -13468,7 +13450,7 @@ memory usage: 11.2+ MB
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>2.</code> For the rows where <strong>treatment</strong> does not match with <strong>new_page</strong> or <strong>control</strong> does not match with <strong>old_page</strong>, we cannot be sure if this row truly received the new or old page.</p>
-<p>a. Create a new dataset that meets the specifications.</p>
+<p>a. Create a new dataset that meets the specifications by dropping the rows with unclear data.</p>
 
 </div>
 </div>
@@ -13524,7 +13506,7 @@ memory usage: 11.2+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>3.</code> Use <strong>df2</strong> and the cells below to answer questions for <strong>Quiz3</strong> in the classroom.</p>
+<p><code>3.</code> Let's try to answer some questions about data.</p>
 
 </div>
 </div>
@@ -13711,7 +13693,7 @@ memory usage: 11.2+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>4.</code> Use <strong>df2</strong> in the cells below to answer the quiz questions related to <strong>Quiz 4</strong> in the classroom.</p>
+<p><code>4.</code> Let's try to answer more questions about data.</p>
 <p>a. What is the probability of an individual converting regardless of the page they receive?</p>
 
 </div>
@@ -13881,15 +13863,7 @@ memory usage: 11.2+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>e. Consider your results from parts (a) through (d) above, and explain below whether you think there is sufficient evidence to conclude that the new treatment page leads to more conversions.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>There is no sufficient evidence to conclude that the new treatment page leads to more conversions. In every cases the propability is around 12%.</strong></p>
+<p><strong>By considering our results from parts (a) through (d) above, there is no sufficient evidence the new treatment page leads to more conversions. In every case the probability is around 12% and differs insignificantly from others.</strong></p>
 
 </div>
 </div>
@@ -13898,10 +13872,7 @@ memory usage: 11.2+ MB
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='ab_test'></a></p>
-<h3 id="Part-II---A/B-Test">Part II - A/B Test<a class="anchor-link" href="#Part-II---A/B-Test">&#182;</a></h3><p>Notice that because of the time stamp associated with each event, you could technically run a hypothesis test continuously as each observation was observed.</p>
-<p>However, then the hard question is do you stop as soon as one page is considered significantly better than another or does it need to happen consistently for a certain amount of time?  How long do you run to render a decision that neither page is better than another?</p>
-<p>These questions are the difficult parts associated with A/B tests in general.</p>
-<p><code>1.</code> For now, consider you need to make the decision just based on all the data provided.  If you want to assume that the old page is better unless the new page proves to be definitely better at a Type I error rate of 5%, what should your null and alternative hypotheses be?  You can state your hypothesis in terms of words or in terms of <strong>$p_{old}$</strong> and <strong>$p_{new}$</strong>, which are the converted rates for the old and new pages.</p>
+<h3 id="Part-II---A/B-Test">Part II - A/B Test<a class="anchor-link" href="#Part-II---A/B-Test">&#182;</a></h3><p><code>1.</code> For now, consider we need to make the decision just based on all the data provided. We want to assume that the old page is better unless the new page proves to be definitely better at a Type I error rate of 5%. Let's state our hypothesis in terms of <strong>$p_{old}$</strong> and <strong>$p_{new}$</strong>, which are the converted rates for the old and new pages.</p>
 
 </div>
 </div>
@@ -13917,9 +13888,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>2.</code> Assume under the null hypothesis, $p_{new}$ and $p_{old}$ both have "true" success rates equal to the <strong>converted</strong> success rate regardless of page - that is $p_{new}$ and $p_{old}$ are equal. Furthermore, assume they are equal to the <strong>converted</strong> rate in <strong>ab_data.csv</strong> regardless of the page. <br><br></p>
-<p>Use a sample size for each page equal to the ones in <strong>ab_data.csv</strong>.  <br><br></p>
-<p>Perform the sampling distribution for the difference in <strong>converted</strong> between the two pages over 10,000 iterations of calculating an estimate from the null.  <br><br></p>
-<p>Use the cells below to provide the necessary parts of this simulation.  If this doesn't make complete sense right now, don't worry - you are going to work through the problems below to complete this problem.  You can use <strong>Quiz 5</strong> in the classroom to make sure you are on the right track.<br><br></p>
+<p>Let's perform the sampling distribution for the difference in <strong>converted</strong> between the two pages over 10,000 iterations of calculating an estimate from the null.  <br><br></p>
 
 </div>
 </div>
@@ -13938,7 +13907,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#p_new and p_old are equal under the null</span>
-<span class="n">p_old</span> <span class="o">=</span> <span class="n">p_new</span> <span class="o">=</span> <span class="n">df_cmean</span>
+<span class="n">p_new</span> <span class="o">=</span> <span class="n">df_cmean</span>
 <span class="n">p_new</span>
 </pre></div>
 
@@ -13980,7 +13949,9 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p_old</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#p_new and p_old are equal under the null</span>
+<span class="n">p_old</span> <span class="o">=</span> <span class="n">df_cmean</span>
+<span class="n">p_old</span>
 </pre></div>
 
     </div>
@@ -14166,7 +14137,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>-0.0017226296978368888</pre>
+<pre>5.263744068957632e-05</pre>
 </div>
 
 </div>
@@ -14189,16 +14160,34 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">p_diffs</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
-    <span class="n">new_page_converted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p_new</span><span class="p">,</span> <span class="n">n_new</span><span class="p">)</span>
-    <span class="n">old_page_converted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p_old</span><span class="p">,</span> <span class="n">n_old</span><span class="p">)</span>
-    <span class="n">p_diffs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_page_converted</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">old_page_converted</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-
-<span class="n">p_diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p_diffs</span><span class="p">)</span>
+<span class="n">new_page_converted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n_new</span><span class="p">,</span> <span class="n">p_new</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_new</span>
+<span class="n">old_page_converted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n_old</span><span class="p">,</span> <span class="n">p_old</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_old</span>
+<span class="n">p_diffs</span> <span class="o">=</span> <span class="n">new_page_converted</span> <span class="o">-</span> <span class="n">old_page_converted</span>
+<span class="n">p_diffs</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[25]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 0.00080315,  0.00133321,  0.00223468, ..., -0.00108259,
+       -0.00035975, -0.00048391])</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -14235,7 +14224,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
+<img src="data:image/png;base64,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
 "
 >
 </div>
@@ -14278,7 +14267,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.9035</pre>
+<pre>0.9055</pre>
 </div>
 
 </div>
@@ -14290,7 +14279,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>k. Please explain using the vocabulary you've learned in this course what you just computed in part <strong>j.</strong>  What is this value called in scientific studies?  What does this value mean in terms of whether or not there is a difference between the new and old pages?</p>
+<p><strong>We computed p-value for our data and hypothesis. The value 90% is much higher than Type I error rate of 5%. It means that we fail to reject our null hypothesis.</strong></p>
 
 </div>
 </div>
@@ -14298,15 +14287,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>We computed p-value for our data and hypothesis. The value 90.35% is much higher than Type I error rate of 5%. It means that we fail to reject our null hypothesis.</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>l. We could also use a built-in to achieve similar results.  Though using the built-in might be easier to code, the above portions are a walkthrough of the ideas that are critical to correctly thinking about statistical significance. Fill in the below to calculate the number of conversions for each page, as well as the number of individuals who received each page. Let <code>n_old</code> and <code>n_new</code> refer the the number of rows associated with the old page and new pages, respectively.</p>
+<p>l. We could also use a built-in to achieve similar results.  Though using the built-in might be easier to code, the above portions are a walkthrough of the ideas that are critical to correctly thinking about statistical significance.</p>
 
 </div>
 </div>
@@ -14379,14 +14360,6 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>n. What do the z-score and p-value you computed in the previous question mean for the conversion rates of the old and new pages?  Do they agree with the findings in parts <strong>j.</strong> and <strong>k.</strong>?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>According to calculated z-score and p-value we failed to reject the null hypothesis again. Our findings in parts j. and k. agree with the values we got from statsmodels library.</strong></p>
 
 </div>
@@ -14396,8 +14369,8 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='regression'></a></p>
-<h3 id="Part-III---A-regression-approach">Part III - A regression approach<a class="anchor-link" href="#Part-III---A-regression-approach">&#182;</a></h3><p><code>1.</code> In this final part, you will see that the result you achieved in the A/B test in Part II above can also be achieved by performing regression.<br><br></p>
-<p>a. Since each row is either a conversion or no conversion, what type of regression should you be performing in this case?</p>
+<h3 id="Part-III---A-regression-approach">Part III - A regression approach<a class="anchor-link" href="#Part-III---A-regression-approach">&#182;</a></h3><p><code>1.</code> In this final part, we will see that the result we achieved in the A/B test in Part II above can also be achieved by performing regression.<br><br></p>
+<p>a. Since each row is either a conversion or no conversion, we should perform a logistic regression in this case.</p>
 
 </div>
 </div>
@@ -14405,15 +14378,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We should perform a logistic regression.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>b. The goal is to use <strong>statsmodels</strong> to fit the regression model you specified in part <strong>a.</strong> to see if there is a significant difference in conversion based on which page a customer receives. However, you first need to create in df2 a column for the intercept, and create a dummy variable column for which page each user received.  Add an <strong>intercept</strong> column, as well as an <strong>ab_page</strong> column, which is 1 when an individual receives the <strong>treatment</strong> and 0 if <strong>control</strong>.</p>
+<p>b. We will use <strong>statsmodels</strong> to fit the regression model we specified in part <strong>a.</strong> to see if there is a significant difference in conversion based on which page a customer receives. However, we first need to create in df2 a column for the intercept, and create a dummy variable column for which page each user received.  Add an <strong>intercept</strong> column, as well as an <strong>ab_page</strong> column, which is 1 when an individual receives the <strong>treatment</strong> and 0 if <strong>control</strong>.</p>
 
 </div>
 </div>
@@ -14435,7 +14400,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>c. Use <strong>statsmodels</strong> to instantiate your regression model on the two columns you created in part b., then fit the model using the two columns you created in part <strong>b.</strong> to predict whether or not an individual converts.</p>
+<p>c. Use <strong>statsmodels</strong> to instantiate our regression model on the two columns we created in part b., then fit the model using the two columns we created in part <strong>b.</strong> to predict whether or not an individual converts.</p>
 
 </div>
 </div>
@@ -14445,7 +14410,9 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;converted&#39;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[[</span><span class="s1">&#39;intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;ab_page&#39;</span><span class="p">]])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Instantiating the model</span>
+<span class="n">lm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;converted&#39;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[[</span><span class="s1">&#39;intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;ab_page&#39;</span><span class="p">]])</span>
+<span class="c1"># Fitting the model</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">lm</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 </pre></div>
 
@@ -14477,7 +14444,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>d. Provide the summary of your model below, and use it as necessary to answer the following questions.</p>
+<p>d. Provide the summary of our model.</p>
 
 </div>
 </div>
@@ -14517,10 +14484,10 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
   <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>   <td>     1</td>   
 </tr>
 <tr>
-  <th>Date:</th>            <td>Thu, 21 May 2020</td> <th>  Pseudo R-squ.:     </th>  <td>8.077e-06</td> 
+  <th>Date:</th>            <td>Fri, 22 May 2020</td> <th>  Pseudo R-squ.:     </th>  <td>8.077e-06</td> 
 </tr>
 <tr>
-  <th>Time:</th>                <td>22:26:19</td>     <th>  Log-Likelihood:    </th> <td>-1.0639e+05</td>
+  <th>Time:</th>                <td>14:03:32</td>     <th>  Log-Likelihood:    </th> <td>-1.0639e+05</td>
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td>-1.0639e+05</td>
@@ -14551,15 +14518,7 @@ $$H_0: p_{new} - p_{old} &lt;= 0$$$$H_1: p_{new} - p_{old} &gt; 0$$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>e. What is the p-value associated with <strong>ab_page</strong>? Why does it differ from the value you found in <strong>Part II</strong>?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>P-value from logistic regression is 0.19 and significantly lower than we calculated earlier. The difference is because logistic regression uses a different hypothesis:</strong>
+<p>e. <strong>P-value from logistic regression is 0.19 and significantly lower than we calculated earlier. The difference is because logistic regression uses a different hypothesis:</strong>
 $$H_0: p_{new} - p_{old} = 0$$
 $$H_1: p_{new} - p_{old} \neq 0$$</p>
 
@@ -14569,7 +14528,7 @@ $$H_1: p_{new} - p_{old} \neq 0$$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>f. Now, you are considering other things that might influence whether or not an individual converts.  Discuss why it is a good idea to consider other factors to add into your regression model.  Are there any disadvantages to adding additional terms into your regression model?</p>
+<p>f. <strong>Many factors can influence statistics. The more factors we consider in our model the less statistical mistakes we can make. Previous analysis showed that the type of group has no impact on conversion. So it is definitely a good idea to check other data.</strong></p>
 
 </div>
 </div>
@@ -14577,16 +14536,7 @@ $$H_1: p_{new} - p_{old} \neq 0$$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Many factors can influence statistics. The more factors we consider in our model the less statistical mistakes we can make. Previous analysis showed that the type of group has no impact on conversion. So it is definitely a good idea to check other data.</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>g. Now along with testing if the conversion rate changes for different pages, also add an effect based on which country a user lives in. You will need to read in the <strong>countries.csv</strong> dataset and merge together your datasets on the appropriate rows.  <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.join.html">Here</a> are the docs for joining tables.</p>
-<p>Does it appear that country had an impact on conversion?</p>
+<p>g. Now along with testing if the conversion rate changes for different pages, also add an effect based on which country a user lives in. We read in the <strong>countries.csv</strong> dataset and merge together our datasets on the appropriate rows.  <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.join.html">Here</a> are the docs for joining tables.</p>
 
 </div>
 </div>
@@ -14743,8 +14693,7 @@ $$H_1: p_{new} - p_{old} \neq 0$$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>h. Though you have now looked at the individual factors of country and page on conversion, we would now like to look at an interaction between page and country to see if there significant effects on conversion.  Create the necessary additional columns, and fit the new model.</p>
-<p>Provide the summary results, and your conclusions based on the results.</p>
+<p>Let's check if country had an impact on conversion.</p>
 
 </div>
 </div>
@@ -14754,8 +14703,114 @@ $$H_1: p_{new} - p_{old} \neq 0$$</p>
 <div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">cdf</span><span class="p">[</span><span class="s1">&#39;converted&#39;</span><span class="p">],</span> <span class="n">cdf</span><span class="p">[[</span><span class="s1">&#39;intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;ab_page&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">]])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Instantiating the model</span>
+<span class="n">lm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">cdf</span><span class="p">[</span><span class="s1">&#39;converted&#39;</span><span class="p">],</span> <span class="n">cdf</span><span class="p">[[</span><span class="s1">&#39;intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">]])</span>
+<span class="c1"># Fitting the model</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">lm</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="c1"># Displaying summary results</span>
+<span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Optimization terminated successfully.
+         Current function value: 0.366116
+         Iterations 6
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[34]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="simpletable">
+<caption>Logit Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>       <td>converted</td>    <th>  No. Observations:  </th>   <td>290584</td>   
+</tr>
+<tr>
+  <th>Model:</th>                 <td>Logit</td>      <th>  Df Residuals:      </th>   <td>290581</td>   
+</tr>
+<tr>
+  <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>   <td>     2</td>   
+</tr>
+<tr>
+  <th>Date:</th>            <td>Fri, 22 May 2020</td> <th>  Pseudo R-squ.:     </th>  <td>1.521e-05</td> 
+</tr>
+<tr>
+  <th>Time:</th>                <td>14:03:33</td>     <th>  Log-Likelihood:    </th> <td>-1.0639e+05</td>
+</tr>
+<tr>
+  <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td>-1.0639e+05</td>
+</tr>
+<tr>
+  <th>Covariance Type:</th>     <td>nonrobust</td>    <th>  LLR p-value:       </th>   <td>0.1984</td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>         <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>intercept</th> <td>   -1.9967</td> <td>    0.007</td> <td> -292.314</td> <td> 0.000</td> <td>   -2.010</td> <td>   -1.983</td>
+</tr>
+<tr>
+  <th>CA</th>        <td>   -0.0408</td> <td>    0.027</td> <td>   -1.518</td> <td> 0.129</td> <td>   -0.093</td> <td>    0.012</td>
+</tr>
+<tr>
+  <th>UK</th>        <td>    0.0099</td> <td>    0.013</td> <td>    0.746</td> <td> 0.456</td> <td>   -0.016</td> <td>    0.036</td>
+</tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The p-values for the countries are higher than 5% error rate. So we can conclude that countries alone don't influence conversion significantly.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>h. Though we have now looked at the individual factors of country and page on conversion, we would now like to look at an interaction between page and country to see if there significant effects on conversion.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Instantiating the model</span>
+<span class="n">lm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">cdf</span><span class="p">[</span><span class="s1">&#39;converted&#39;</span><span class="p">],</span> <span class="n">cdf</span><span class="p">[[</span><span class="s1">&#39;intercept&#39;</span><span class="p">,</span> <span class="s1">&#39;ab_page&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">]])</span>
+<span class="c1"># Fitting the model</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">lm</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="c1"># Displaying summary results</span>
 <span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 
@@ -14782,7 +14837,7 @@ $$H_1: p_{new} - p_{old} \neq 0$$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[34]:</div>
+    <div class="prompt output_prompt">Out[35]:</div>
 
 
 
@@ -14799,10 +14854,10 @@ $$H_1: p_{new} - p_{old} \neq 0$$</p>
   <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>   <td>     3</td>   
 </tr>
 <tr>
-  <th>Date:</th>            <td>Thu, 21 May 2020</td> <th>  Pseudo R-squ.:     </th>  <td>2.323e-05</td> 
+  <th>Date:</th>            <td>Fri, 22 May 2020</td> <th>  Pseudo R-squ.:     </th>  <td>2.323e-05</td> 
 </tr>
 <tr>
-  <th>Time:</th>                <td>22:26:22</td>     <th>  Log-Likelihood:    </th> <td>-1.0639e+05</td>
+  <th>Time:</th>                <td>14:03:34</td>     <th>  Log-Likelihood:    </th> <td>-1.0639e+05</td>
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td>-1.0639e+05</td>
@@ -14839,7 +14894,7 @@ $$H_1: p_{new} - p_{old} \neq 0$$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>As we can see p-values for any country is greater that 5%. We can conlude that country didn't have any significant effect on conversion.</strong></p>
+<p><strong>The p-values for the countries and the ab_page are greater than 5% error rate. We can conclude that an interaction between page and country doesn't have any significant effect on conversion.</strong></p>
 
 </div>
 </div>
@@ -14848,7 +14903,7 @@ $$H_1: p_{new} - p_{old} \neq 0$$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='conclusions'></a></p>
-<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h2><p>We failed to reject the null hypothesis. We also found that the country didn't have any effect on conversion. So we can claim that there is no statistical evidence to replace the old page with the new one.</p>
+<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h2><p>The analysis results showed that we have no sufficient evidence to claim that the new page has a higher conversion rate than the old one. We found that the page alone, a country, and an interaction between page and country don't have any effect on a conversion rate. According to our data analysis, we recommend the company not use the new page.</p>
 
 </div>
 </div>
